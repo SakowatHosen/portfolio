@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Md. Sakowat Hosen — Network &amp; DevOps Engineer</title>
   <meta name="description"
-    content="Md. Sakowat Hosen — Assistant Network Engineer in Dhaka, Bangladesh. Routing, switching, VLANs, Linux, monitoring and DevOps practices for reliable infrastructure." />
+    content="Md. Sakowat Hosen — Assistant Network Engineer in Dhaka, Bangladesh with 3.8 years across enterprise and ISP infrastructure: MikroTik, Cisco, Huawei, BDCOM, VLAN, routing, Windows Server 2016, Hyper-V, VMware, ELK and Grafana." />
   <meta name="author" content="Md. Sakowat Hosen" />
   <meta name="theme-color" content="#0a0f0d" media="(prefers-color-scheme: dark)" />
   <meta name="theme-color" content="#f2f5f3" media="(prefers-color-scheme: light)" />
@@ -15,7 +15,7 @@
   <meta property="og:type" content="profile" />
   <meta property="og:title" content="Md. Sakowat Hosen — Network &amp; DevOps Engineer" />
   <meta property="og:description"
-    content="Assistant Network Engineer focused on reliable, scalable and secure IT infrastructure." />
+    content="Assistant Network Engineer in Dhaka — 3.8 years across enterprise and ISP infrastructure, from MikroTik and Cisco networks to Windows Server, virtualisation and monitoring." />
   <meta property="og:image" content="image/IMG-20260722-WA0018.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
 
@@ -45,6 +45,14 @@
 
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+
+  <!-- Ambient backdrop: drifting glows + film grain -->
+  <div class="backdrop" aria-hidden="true">
+    <span class="glow glow-a"></span>
+    <span class="glow glow-b"></span>
+    <span class="grain"></span>
+  </div>
 
   <header class="site-header" id="top">
     <nav class="nav container" aria-label="Primary">
@@ -79,29 +87,76 @@
 
     <!-- Hero ------------------------------------------------------------ -->
     <section class="hero container" id="home">
-      <div class="hero-copy reveal">
-        <p class="eyebrow"><span class="status-dot"></span> Available for new opportunities</p>
-        <h1>Building the<br /><em>infrastructure</em><br />behind what’s next.</h1>
-        <p class="hero-intro">
-          I’m Md. Sakowat Hosen, an Assistant Network Engineer and DevOps enthusiast focused on reliable,
-          scalable and secure IT infrastructure.
+      <div class="hero-copy">
+        <p class="eyebrow reveal" style="--i:0"><span class="status-dot"></span> Available for new opportunities</p>
+
+        <h1 class="lines reveal" style="--i:1">
+          <span class="line"><span>Building the</span></span>
+          <span class="line"><span><em>infrastructure</em></span></span>
+          <span class="line"><span>behind what’s next.</span></span>
+        </h1>
+
+        <p class="hero-intro reveal" style="--i:4">
+          I’m Md. Sakowat Hosen, an Assistant Network Engineer in Dhaka with 3.8 years across enterprise and ISP
+          infrastructure — MikroTik and Cisco networks, Windows Server, virtualisation and monitoring.
         </p>
-        <div class="hero-actions">
+
+        <div class="hero-actions reveal" style="--i:5">
           <a class="button" href="#projects">View my work <i data-lucide="arrow-up-right"></i></a>
           <a class="text-link" href="#contact">Let’s connect <i data-lucide="arrow-down-right"></i></a>
         </div>
-        <div class="hero-meta">
-          <span><strong>01</strong> Network &amp; systems</span>
-          <span><strong>02</strong> Automation mindset</span>
+
+        <div class="hero-meta reveal" style="--i:6">
+          <span><strong>01</strong> Routing &amp; switching</span>
+          <span><strong>02</strong> Windows Server &amp; virtualisation</span>
+          <span><strong>03</strong> Monitoring &amp; uptime</span>
         </div>
       </div>
 
-      <div class="hero-visual reveal">
-        <figure class="portrait-frame">
-          <img src="image/IMG-20260722-WA0018.jpg" alt="Portrait of Md. Sakowat Hosen" width="760" height="950"
-            fetchpriority="high" decoding="async" />
+      <div class="hero-visual reveal" style="--i:3">
+        <!-- Live topology: nodes and links with traffic flowing between them -->
+        <div class="hero-net" aria-hidden="true">
+          <svg viewBox="0 0 460 560" fill="none" preserveAspectRatio="xMidYMid slice">
+            <g class="net-links">
+              <path d="M60 110 L215 55" /><path d="M215 55 L390 130" />
+              <path d="M60 110 L120 265" /><path d="M215 55 L230 265" />
+              <path d="M390 130 L300 240" /><path d="M120 265 L230 265" />
+              <path d="M300 240 L230 265" /><path d="M120 265 L55 415" />
+              <path d="M300 240 L400 395" /><path d="M55 415 L230 470" />
+              <path d="M230 470 L400 395" /><path d="M230 470 L230 265" />
+            </g>
+            <g class="net-nodes">
+              <circle cx="60" cy="110" r="3.5" /><circle cx="215" cy="55" r="3.5" />
+              <circle cx="390" cy="130" r="3.5" /><circle cx="120" cy="265" r="3.5" />
+              <circle cx="300" cy="240" r="3.5" /><circle cx="55" cy="415" r="3.5" />
+              <circle cx="230" cy="470" r="3.5" /><circle cx="400" cy="395" r="3.5" />
+              <circle class="net-hub" cx="230" cy="265" r="5.5" />
+            </g>
+            <g class="net-pulses">
+              <circle cx="215" cy="55" r="3.5" /><circle cx="230" cy="265" r="5.5" />
+              <circle cx="400" cy="395" r="3.5" /><circle cx="55" cy="415" r="3.5" />
+            </g>
+          </svg>
+        </div>
+
+        <figure class="portrait-frame tilt">
+          <div class="portrait-stack">
+            <img class="is-active" src="image/IMG-20260722-WA0018.jpg" alt="Portrait of Md. Sakowat Hosen"
+              width="3024" height="4032" fetchpriority="high" decoding="async" />
+            <img src="image/1708791872538.jpg" alt="" width="2448" height="3264" decoding="async" />
+            <img src="image/1749658262247.jpg" alt="" width="793" height="1247" decoding="async" />
+          </div>
+          <span class="portrait-dots" aria-hidden="true"><i class="is-active"></i><i></i><i></i></span>
           <figcaption class="frame-label">MD. SAKOWAT HOSEN / 01</figcaption>
         </figure>
+
+        <div class="hero-chip chip-uptime">
+          <span class="status-dot"></span>
+          <div><b>Open to work</b><small>Dhaka, Bangladesh</small></div>
+        </div>
+        <div class="hero-chip chip-stack">
+          <div><b>MikroTik · Cisco</b><small>routing &amp; switching</small></div>
+        </div>
       </div>
     </section>
 
@@ -123,7 +178,10 @@
     <section class="section container" id="about">
       <div class="section-heading reveal">
         <p class="eyebrow">01 / About</p>
-        <h2>The work is technical.<br /><em>The impact is human.</em></h2>
+        <h2 class="lines">
+          <span class="line"><span>The work is technical.</span></span>
+          <span class="line"><span><em>The impact is human.</em></span></span>
+        </h2>
       </div>
 
       <div class="about-grid">
@@ -132,29 +190,36 @@
             I work at the intersection of network reliability, systems thinking and modern infrastructure.
           </p>
           <p>
-            I am a Computer Science and Engineering graduate currently working as an Assistant Network Engineer.
-            My day-to-day work spans routing, switching, VLANs, monitoring and infrastructure troubleshooting.
+            I am a Computer Science and Engineering graduate working as an Assistant Network Engineer at
+            OnnoRokom Projukti Limited. My days go into routing and switching, VLAN design, IP planning,
+            wireless and VoIP — and into keeping live online classes on the air while thousands of students
+            are watching.
           </p>
           <p>
-            Beyond keeping systems healthy, I enjoy learning how automation and DevOps practices can make
-            technology more resilient, observable and easier for teams to build on.
+            Before that I spent almost two years in the ISP sector, monitoring core network infrastructure and
+            resolving customer connectivity incidents. That is where I learned what a few minutes of downtime
+            actually costs.
+          </p>
+          <p>
+            Alongside networking I work with Windows Server and virtualisation — Active Directory, DNS, DHCP,
+            GPO, Hyper-V and VMware — and I am steadily moving toward automation and DevOps practice.
           </p>
 
           <div class="objective">
             <span class="mini-label">Career objective</span>
             <p>
-              To build a career in IT as a systems and network engineer by applying my theoretical and practical
-              knowledge, taking on meaningful challenges, and contributing through innovation and hard work.
+              To establish a career in the IT industry as a System/Network Engineer, using my networking
+              knowledge and practical skills to deliver reliable and efficient IT solutions.
             </p>
             <div class="language-row">
-              <span>Bengali <b>Native</b></span>
+              <span>Bangla <b>Native</b></span>
               <span>English <b>Professional</b></span>
-              <span>Hindi <b>Basic</b></span>
+              <span>Hindi <b>Conversational</b></span>
             </div>
           </div>
         </div>
 
-        <aside class="info-card reveal">
+        <aside class="info-card reveal spotlight" style="--i:1">
           <div class="info-card-top">
             <span class="mini-label">Profile / 2026</span>
             <i data-lucide="scan-line"></i>
@@ -170,7 +235,10 @@
               <dd>Dhaka, Bangladesh</dd>
             </div>
             <div><dt>Focus</dt>
-              <dd>Networking &amp; DevOps</dd>
+              <dd>Network &amp; systems</dd>
+            </div>
+            <div><dt>Experience</dt>
+              <dd>3.8 years</dd>
             </div>
           </dl>
           <p class="info-card-footer"><span class="status-dot"></span> Open to collaboration</p>
@@ -181,10 +249,22 @@
     <!-- Stats ----------------------------------------------------------- -->
     <section class="stats-band" aria-label="At a glance">
       <div class="container stats-grid">
-        <div class="stat reveal"><strong>03<span>+</span></strong><span>Years in infrastructure</span></div>
-        <div class="stat reveal"><strong>04</strong><span>Core disciplines</span></div>
-        <div class="stat reveal"><strong>20<span>+</span></strong><span>Technologies worked with</span></div>
-        <div class="stat reveal"><strong>24<span>/7</span></strong><span>Reliability mindset</span></div>
+        <div class="stat reveal" style="--i:0">
+          <strong><span class="counter" data-count="3" data-pad="1">0</span>.8</strong>
+          <span>Years of experience</span>
+        </div>
+        <div class="stat reveal" style="--i:1">
+          <strong><span class="counter" data-count="4" data-pad="2">00</span></strong>
+          <span>Router &amp; switch vendors</span>
+        </div>
+        <div class="stat reveal" style="--i:2">
+          <strong><span class="counter" data-count="3" data-pad="1">0</span>.45</strong>
+          <span>BSc CGPA / 4.00</span>
+        </div>
+        <div class="stat reveal" style="--i:3">
+          <strong><span class="counter" data-count="24" data-pad="2">00</span><span class="unit">/7</span></strong>
+          <span>Live class monitoring</span>
+        </div>
       </div>
     </section>
 
@@ -193,52 +273,60 @@
       <div class="section-heading split-heading reveal">
         <div>
           <p class="eyebrow">02 / Capabilities</p>
-          <h2>Tools for keeping<br /><em>systems in motion.</em></h2>
+          <h2 class="lines">
+            <span class="line"><span>Tools for keeping</span></span>
+            <span class="line"><span><em>systems in motion.</em></span></span>
+          </h2>
         </div>
         <p>From the network edge to the observability layer, I build a practical toolkit around dependable
           infrastructure.</p>
       </div>
 
       <div class="skills-grid">
-        <article class="skill-card is-featured reveal">
+        <article class="skill-card is-featured reveal spotlight" style="--i:0">
           <div class="skill-number">01</div>
           <i data-lucide="network"></i>
           <h3>Networking</h3>
           <div class="tag-list">
             <span>MikroTik</span><span>Cisco</span><span>Huawei</span><span>BDCOM</span>
-            <span>Routing &amp; Switching</span><span>VLAN</span><span>LAN / WAN</span>
-            <span>TCP / IP</span><span>SNMP</span><span>VoIP</span>
+            <span>Routing &amp; Switching</span><span>VLAN</span><span>IP addressing</span>
+            <span>Subnetting</span><span>NAT</span><span>LAN / WAN</span>
+            <span>Wireless</span><span>TCP / IP</span><span>VoIP &amp; IP phones</span>
           </div>
         </article>
 
-        <article class="skill-card reveal">
+        <article class="skill-card reveal spotlight" style="--i:1">
           <div class="skill-number">02</div>
           <i data-lucide="server"></i>
-          <h3>Systems &amp; Linux</h3>
+          <h3>Windows Server &amp; virtualisation</h3>
           <div class="tag-list">
-            <span>Ubuntu</span><span>Linux Admin</span><span>Windows Server</span>
-            <span>Bash</span><span>Troubleshooting</span>
+            <span>Windows Server 2016</span><span>Active Directory</span><span>DNS</span>
+            <span>DHCP</span><span>GPO</span><span>WSUS</span><span>WDS</span>
+            <span>VPN</span><span>IPSec</span><span>Hyper-V</span><span>VMware</span>
+            <span>VirtualBox</span><span>iSCSI</span><span>NFS / SMB</span><span>IIS</span>
           </div>
         </article>
 
-        <article class="skill-card reveal">
+        <article class="skill-card reveal spotlight" style="--i:2">
           <div class="skill-number">03</div>
-          <i data-lucide="container"></i>
-          <h3>DevOps &amp; Cloud</h3>
+          <i data-lucide="activity"></i>
+          <h3>Monitoring &amp; support</h3>
           <div class="tag-list">
-            <span>Docker</span><span>Kubernetes basics</span><span>Ansible</span>
-            <span>Git</span><span>CI / CD basics</span><span>AWS basics</span>
+            <span>ELK Stack</span><span>Grafana</span><span>NMS tools</span><span>SNMP</span>
+            <span>PRTG</span><span>LibreNMS</span><span>Telnet / SSH</span>
+            <span>Config backups</span><span>Incident response</span>
           </div>
         </article>
 
-        <article class="skill-card reveal">
+        <article class="skill-card reveal spotlight" style="--i:3">
           <div class="skill-number">04</div>
-          <i data-lucide="activity"></i>
-          <h3>Observability</h3>
+          <i data-lucide="container"></i>
+          <h3>Systems &amp; DevOps</h3>
           <div class="tag-list">
-            <span>PRTG</span><span>LibreNMS</span><span>Grafana</span>
-            <span>Prometheus</span><span>ELK Stack</span>
+            <span>Linux / Ubuntu</span><span>Bash</span><span>Docker</span><span>Git</span>
+            <span>PC assembly</span><span>Hardware</span><span>Troubleshooting</span>
           </div>
+          <p class="skill-note">Currently learning — Kubernetes, Ansible, CI/CD, AWS</p>
         </article>
       </div>
     </section>
@@ -248,46 +336,65 @@
       <div class="container">
         <div class="section-heading reveal">
           <p class="eyebrow">03 / Experience</p>
-          <h2>Learning by keeping<br /><em>the lights on.</em></h2>
+          <h2 class="lines">
+            <span class="line"><span>Learning by keeping</span></span>
+            <span class="line"><span><em>the lights on.</em></span></span>
+          </h2>
         </div>
 
         <div class="timeline">
           <article class="timeline-item reveal">
-            <p class="timeline-date">NOV 2024 — PRESENT</p>
+            <p class="timeline-date">DEC 2024 — PRESENT<br /><span>1.8 yrs</span></p>
             <div class="timeline-marker" aria-hidden="true"></div>
             <div class="timeline-content">
-              <p class="role-kicker">Full-time · Dhaka, Bangladesh</p>
+              <p class="role-kicker">Full-time · Kazi Nazrul Islam Ave, Dhaka</p>
               <h3>Assistant Network Engineer</h3>
               <p class="company">OnnoRokom Projukti Limited</p>
               <ul>
-                <li>Install, configure, rack and maintain MikroTik routers and Cisco, Huawei and BDCOM switches.</li>
-                <li>Manage structured cabling, patch panels, labelling and uplinks across office and branch sites.</li>
-                <li>Design and maintain VLAN segmentation, routing, IP allocation, wireless and VoIP / IP phones.</li>
-                <li>Monitor LAN, WAN and live-class infrastructure with PRTG, LibreNMS, Grafana, Prometheus and ELK.</li>
-                <li>Troubleshoot Layer 1–3 incidents and own device backups, inventory, documentation and SOPs.</li>
-                <li>Coordinate vendors, ISPs, branch offices and internal teams during changes and outages.</li>
+                <li>Install, configure and maintain MikroTik routers and Cisco, Huawei and BDCOM switches, including
+                  rack mounting, power, uplink and port connectivity.</li>
+                <li>Manage cabling, patch panels, cable labelling and cable routing inside server racks.</li>
+                <li>Maintain LAN, WAN and wireless infrastructure for low latency and maximum uptime.</li>
+                <li>Manage IP address allocation, VLAN configuration, routing and switching policy across
+                  environments.</li>
+                <li>Configure wireless devices, IP phone systems and VoIP services.</li>
+                <li>Monitor network and system logs with Elastic Stack (ELK) and infrastructure health with Grafana.
+                </li>
+                <li>Run real-time monitoring of Udvash live classes so online sessions stay uninterrupted.</li>
+                <li>Support internal teams and branch offices with troubleshooting, device inventory and automated
+                  configuration backups.</li>
+                <li>Coordinate with vendors and ISPs on issue resolution, maintenance and infrastructure upgrades.
+                </li>
               </ul>
               <div class="timeline-stack">
-                <span>MikroTik</span><span>VLAN</span><span>SNMP</span><span>Grafana</span><span>ELK</span>
+                <span>MikroTik</span><span>Cisco</span><span>Huawei</span><span>BDCOM</span>
+                <span>VLAN</span><span>VoIP</span><span>ELK</span><span>Grafana</span>
               </div>
             </div>
           </article>
 
           <article class="timeline-item reveal">
-            <p class="timeline-date">NOV 2022 — SEP 2024</p>
+            <p class="timeline-date">NOV 2022 — SEP 2024<br /><span>1.9 yrs</span></p>
             <div class="timeline-marker" aria-hidden="true"></div>
             <div class="timeline-content">
-              <p class="role-kicker">Full-time · ISP sector</p>
+              <p class="role-kicker">Full-time · ISP sector · Badda, Dhaka</p>
               <h3>Support Executive <small>(P&amp;D)</small></h3>
               <p class="company">Premium Connectivity Limited</p>
               <ul>
-                <li>Monitored uplink and downlink traffic, service checks and ISP core infrastructure using NMS tools.</li>
-                <li>Handled customer connectivity incidents from first report through to resolution.</li>
-                <li>Coordinated Fiber, Transmission and Power teams during outages and planned maintenance.</li>
-                <li>Performed remote configuration, troubleshooting and backups over Telnet and SSH.</li>
+                <li>Monitored uplink and downlink traffic, service availability and network performance using NMS
+                  tools, including service up/down checks.</li>
+                <li>Handled customer complaints and connectivity issues, ran line checks and coordinated
+                  troubleshooting for timely service restoration.</li>
+                <li>Coordinated with Fiber, Transmission and Power teams to resolve fiber faults, power issues and
+                  network outages.</li>
+                <li>Performed remote configuration, troubleshooting and backup of network devices and servers over
+                  Telnet and SSH.</li>
+                <li>Monitored ISP network servers and core infrastructure to keep services reliable.</li>
+                <li>Followed up incidents with internal technical teams and customers to minimise downtime.</li>
               </ul>
               <div class="timeline-stack">
-                <span>NMS</span><span>Telnet / SSH</span><span>Fiber</span><span>Incident response</span>
+                <span>NMS tools</span><span>Telnet / SSH</span><span>Fiber</span>
+                <span>ISP core</span><span>Incident response</span>
               </div>
             </div>
           </article>
@@ -300,27 +407,32 @@
       <div class="section-heading split-heading reveal">
         <div>
           <p class="eyebrow">04 / Selected work</p>
-          <h2>Practical systems,<br /><em>real-world thinking.</em></h2>
+          <h2 class="lines">
+            <span class="line"><span>Practical systems,</span></span>
+            <span class="line"><span><em>real-world thinking.</em></span></span>
+          </h2>
         </div>
         <a class="text-link" href="#contact">Start a conversation <i data-lucide="arrow-up-right"></i></a>
       </div>
 
       <div class="projects-grid">
-        <article class="project-card is-large reveal">
-          <div class="project-visual network-art">
-            <div class="network-lines"></div>
-            <span class="art-label">TOPOLOGY / 01</span>
-            <i data-lucide="router"></i>
+        <article class="project-card is-large reveal spotlight" style="--i:0">
+          <div class="project-visual monitor-art">
+            <div class="chart" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <span class="art-label">LIVE / 01</span>
           </div>
           <div class="project-body">
             <span class="project-index">01</span>
-            <h3>Enterprise Network Infrastructure Design</h3>
+            <h3>Live class infrastructure monitoring</h3>
             <p>
-              Scalable architecture built on MikroTik routing and Layer 3 switching, with VLAN segmentation per
-              department, redundant uplinks and centralised management.
+              Udvash runs online classes where a dropped link means thousands of students lose the session. I keep
+              that path healthy in real time — watching network and system logs in Elastic Stack, infrastructure
+              health in Grafana, and stepping in before a degraded link becomes a dead one.
             </p>
             <div class="tag-list">
-              <span>MikroTik</span><span>VLAN</span><span>Routing</span><span>Switching</span>
+              <span>ELK Stack</span><span>Grafana</span><span>LAN / WAN</span><span>Wireless</span>
             </div>
             <a href="#contact" class="project-link" aria-label="Discuss Enterprise Network Infrastructure Design">
               <i data-lucide="arrow-up-right"></i>
@@ -328,57 +440,70 @@
           </div>
         </article>
 
-        <article class="project-card reveal">
-          <div class="project-visual monitor-art">
-            <div class="chart" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span>
-            </div>
-            <span class="art-label">UPTIME / 02</span>
+        <article class="project-card reveal spotlight" style="--i:1">
+          <div class="project-visual network-art">
+            <div class="network-lines"></div>
+            <span class="art-label">TOPOLOGY / 02</span>
+            <i data-lucide="router"></i>
           </div>
           <div class="project-body">
             <span class="project-index">02</span>
-            <h3>Network Monitoring Dashboard</h3>
-            <p>Availability, bandwidth and system performance monitoring with alerting on SNMP metrics.</p>
+            <h3>Enterprise network build &amp; VLAN segmentation</h3>
+            <p>
+              Racking and configuring MikroTik routers and Cisco, Huawei and BDCOM switches, then giving the
+              network a structure: VLANs per function, planned IP allocation, routing and switching policy, and
+              cabling that the next engineer can actually read.
+            </p>
             <div class="tag-list">
-              <span>Grafana</span><span>Prometheus</span><span>SNMP</span>
+              <span>MikroTik</span><span>VLAN</span><span>Routing</span><span>Switching</span><span>Cabling</span>
             </div>
-            <a href="#contact" class="project-link" aria-label="Discuss Network Monitoring Dashboard">
+            <a href="#contact" class="project-link" aria-label="Discuss enterprise network build and VLAN segmentation">
               <i data-lucide="arrow-up-right"></i>
             </a>
           </div>
         </article>
 
-        <article class="project-card reveal">
+        <article class="project-card reveal spotlight" style="--i:2">
           <div class="project-visual terminal-art">
-            <span>$ systemctl status infra</span>
-            <b>● active (running)</b>
-            <span>ubuntu / bash / linux</span>
+            <span>&gt; Get-ADDomainController</span>
+            <b>● domain services running</b>
+            <span>windows server 2016 / hyper-v</span>
           </div>
           <div class="project-body">
             <span class="project-index">03</span>
-            <h3>Linux Server Administration</h3>
-            <p>User management, permissions, services, networking and day-to-day server administration.</p>
+            <h3>Windows Server &amp; virtualisation build-out</h3>
+            <p>
+              Built during the IsDB-BISEW Network System Administration diploma and carried into practice:
+              Active Directory, DNS, DHCP, GPO and VPN on Windows Server 2016, running on Hyper-V and VMware
+              with iSCSI, NFS and SMB storage behind it.
+            </p>
             <div class="tag-list">
-              <span>Ubuntu</span><span>Linux</span><span>Bash</span>
+              <span>Active Directory</span><span>DNS / DHCP</span><span>GPO</span>
+              <span>Hyper-V</span><span>VMware</span><span>iSCSI</span>
             </div>
-            <a href="#contact" class="project-link" aria-label="Discuss Linux Server Administration">
+            <a href="#contact" class="project-link" aria-label="Discuss Windows Server and virtualisation work">
               <i data-lucide="arrow-up-right"></i>
             </a>
           </div>
         </article>
 
-        <article class="project-card reveal">
-          <div class="project-visual docker-art">
-            <i data-lucide="box"></i>
-            <span>ship / run / repeat</span>
+        <article class="project-card reveal spotlight" style="--i:3">
+          <div class="project-visual ops-art">
+            <i data-lucide="globe"></i>
+            <span>monitor / escalate / restore</span>
           </div>
           <div class="project-body">
             <span class="project-index">04</span>
-            <h3>Docker &amp; DevOps Practice</h3>
-            <p>Containerised applications and modern DevOps workflows explored through hands-on practice.</p>
+            <h3>ISP core monitoring &amp; incident response</h3>
+            <p>
+              Two years on the ISP side: watching uplink and downlink traffic and core infrastructure through NMS
+              tools, taking customer faults from first call to restoration, and pulling Fiber, Transmission and
+              Power teams together when the cause sat outside the network.
+            </p>
             <div class="tag-list">
-              <span>Docker</span><span>Git</span><span>Linux</span>
+              <span>NMS tools</span><span>Telnet / SSH</span><span>Fiber faults</span><span>Escalation</span>
             </div>
-            <a href="#contact" class="project-link" aria-label="Discuss Docker and DevOps practice">
+            <a href="#contact" class="project-link" aria-label="Discuss ISP core monitoring and incident response">
               <i data-lucide="arrow-up-right"></i>
             </a>
           </div>
@@ -392,13 +517,16 @@
         <div class="education-grid">
           <div class="section-heading reveal">
             <p class="eyebrow">05 / Education &amp; training</p>
-            <h2>The foundation<br /><em>under the stack.</em></h2>
+            <h2 class="lines">
+              <span class="line"><span>The foundation</span></span>
+              <span class="line"><span><em>under the stack.</em></span></span>
+            </h2>
             <p class="heading-note">A curious engineer is always still learning.</p>
           </div>
 
           <div class="education-list">
-            <article class="education-item reveal">
-              <span class="education-year">JAN 2023 — SEP 2026</span>
+            <article class="education-item reveal" style="--i:0">
+              <span class="education-year">PASSED 2026</span>
               <div>
                 <h3>BSc in Computer Science &amp; Engineering</h3>
                 <p>Green University of Bangladesh</p>
@@ -406,8 +534,8 @@
               </div>
             </article>
 
-            <article class="education-item reveal">
-              <span class="education-year">MAY 2022 — NOV 2022</span>
+            <article class="education-item reveal" style="--i:1">
+              <span class="education-year">14 MAY — 22 NOV 2022</span>
               <div>
                 <h3>Diploma in Network System Administration</h3>
                 <p>IsDB-BISEW IT Scholarship Programme · IDB Bhaban, Dhaka</p>
@@ -420,8 +548,8 @@
               </div>
             </article>
 
-            <article class="education-item reveal">
-              <span class="education-year">2019</span>
+            <article class="education-item reveal" style="--i:2">
+              <span class="education-year">PASSED 2019</span>
               <div>
                 <h3>Diploma in Engineering, Electronics Technology</h3>
                 <p>Magura Polytechnic Institute · Bangladesh Technical Education Board</p>
@@ -429,8 +557,8 @@
               </div>
             </article>
 
-            <article class="education-item reveal">
-              <span class="education-year">2015</span>
+            <article class="education-item reveal" style="--i:3">
+              <span class="education-year">PASSED 2015</span>
               <div>
                 <h3>Secondary School Certificate, Science</h3>
                 <p>Shimor High School · Dinajpur Board</p>
@@ -444,12 +572,13 @@
           <div>
             <span class="mini-label">Industrial training</span>
             <strong>Basic PLC Automation System</strong>
-            <span>North Bengal Engineering Institute · Six months · Gazipur, Dhaka</span>
+            <span>North Bengal Engineering Institute · Six months · Gazipur, Dhaka · 2019</span>
           </div>
           <div>
-            <span class="mini-label">Open to</span>
-            <strong>Network · Systems · DevOps</strong>
-            <span>Dhaka, Bangladesh · On-site or hybrid</span>
+            <span class="mini-label">Looking for</span>
+            <strong>Mid-level System / Network Engineer</strong>
+            <span>ISP · IT enabled services · hardware &amp; network companies · Dhaka, Rajshahi, Narayanganj,
+              Dinajpur</span>
           </div>
         </div>
       </div>
@@ -457,10 +586,13 @@
 
     <!-- Resume ---------------------------------------------------------- -->
     <section class="section container" id="resume">
-      <div class="resume-card reveal">
+      <div class="resume-card reveal spotlight">
         <div>
           <p class="eyebrow">06 / Resume</p>
-          <h2>A clearer picture<br /><em>of how I work.</em></h2>
+          <h2 class="lines">
+            <span class="line"><span>A clearer picture</span></span>
+            <span class="line"><span><em>of how I work.</em></span></span>
+          </h2>
           <p>Download my complete resume for the full detail on my experience, technical skills, education and
             projects.</p>
         </div>
@@ -480,7 +612,10 @@
       <div class="contact-grid">
         <div class="section-heading reveal">
           <p class="eyebrow">07 / Contact</p>
-          <h2>Let’s work<br /><em>together.</em></h2>
+          <h2 class="lines">
+            <span class="line"><span>Let’s work</span></span>
+            <span class="line"><span><em>together.</em></span></span>
+          </h2>
           <p class="heading-note">For opportunities, collaboration or technology conversations.</p>
 
           <div class="contact-details">
@@ -493,11 +628,22 @@
             <span><i data-lucide="map-pin"></i><span>Dhaka, Bangladesh</span></span>
           </div>
 
+          <!-- Brand marks are inlined: Lucide v1 dropped its brand icon set -->
           <div class="social-links">
             <a href="https://www.linkedin.com/in/sakowat-hosen-486815329/" target="_blank" rel="noopener noreferrer"
-              aria-label="LinkedIn profile"><i data-lucide="linkedin"></i></a>
+              aria-label="LinkedIn profile">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                <path
+                  d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.44-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z" />
+              </svg>
+            </a>
             <a href="https://github.com/SakowatHosen" target="_blank" rel="noopener noreferrer"
-              aria-label="GitHub profile"><i data-lucide="github"></i></a>
+              aria-label="GitHub profile">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                <path
+                  d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58 0-.29-.01-1.05-.02-2.06-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.21.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.11-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.81 5.62-5.49 5.92.43.37.82 1.1.82 2.22 0 1.61-.02 2.9-.02 3.29 0 .32.22.7.83.58A12.01 12.01 0 0 0 24 12.5C24 5.87 18.63.5 12 .5z" />
+              </svg>
+            </a>
           </div>
         </div>
 
@@ -540,7 +686,8 @@
     </div>
   </footer>
 
-  <script src="https://unpkg.com/lucide@latest" defer></script>
+  <!-- Pinned: @latest silently drops icons on major releases -->
+  <script src="https://unpkg.com/lucide@1.41.0" defer></script>
   <script src="script.js" defer></script>
 </body>
 

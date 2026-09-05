@@ -9,6 +9,8 @@
   var navLinks = document.querySelector('.nav-links');
   var menuToggle = document.querySelector('.menu-toggle');
   var themeToggle = document.querySelector('.theme-toggle');
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var canObserve = 'IntersectionObserver' in window;
 
   /* Icons ---------------------------------------------------------------- */
 
@@ -42,15 +44,27 @@
     });
   }
 
-  /* Header state --------------------------------------------------------- */
+  /* Header state + scroll progress --------------------------------------- */
 
-  if (header) {
-    var onScroll = function () {
-      header.classList.toggle('is-scrolled', window.scrollY > 20);
-    };
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
+  var ticking = false;
+
+  function onScroll() {
+    if (header) header.classList.toggle('is-scrolled', window.scrollY > 20);
+
+    var scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    var progress = scrollable > 0 ? window.scrollY / scrollable : 0;
+    root.style.setProperty('--progress', Math.min(1, Math.max(0, progress)).toFixed(4));
+
+    ticking = false;
   }
+
+  window.addEventListener('scroll', function () {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(onScroll);
+  }, { passive: true });
+
+  onScroll();
 
   /* Mobile menu ---------------------------------------------------------- */
 
@@ -84,12 +98,19 @@
     });
   }
 
+  /* Stagger the line-by-line heading wipes ------------------------------- */
+
+  document.querySelectorAll('.lines').forEach(function (heading) {
+    heading.querySelectorAll('.line').forEach(function (line, index) {
+      line.style.setProperty('--line-i', String(index));
+    });
+  });
+
   /* Scroll reveal -------------------------------------------------------- */
 
   var revealItems = document.querySelectorAll('.reveal');
-  var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+  if (reduceMotion || !canObserve) {
     revealItems.forEach(function (item) {
       item.classList.add('is-visible');
     });
@@ -100,10 +121,101 @@
         entry.target.classList.add('is-visible');
         revealObserver.unobserve(entry.target);
       });
-    }, { threshold: 0.12 });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
 
     revealItems.forEach(function (item) {
       revealObserver.observe(item);
+    });
+  }
+
+  /* Counting stats ------------------------------------------------------- */
+
+  var counters = document.querySelectorAll('.counter');
+
+  function pad(value, width) {
+    var text = String(value);
+    while (text.length < width) text = '0' + text;
+    return text;
+  }
+
+  function runCounter(el) {
+    var target = Number(el.dataset.count) || 0;
+    var width = Number(el.dataset.pad) || 1;
+
+    if (reduceMotion) {
+      el.textContent = pad(target, width);
+      return;
+    }
+
+    var duration = 1400;
+    var start = null;
+
+    function step(timestamp) {
+      if (start === null) start = timestamp;
+      var elapsed = timestamp - start;
+      var t = Math.min(1, elapsed / duration);
+      var eased = 1 - Math.pow(1 - t, 3);
+      el.textContent = pad(Math.round(target * eased), width);
+      if (t < 1) window.requestAnimationFrame(step);
+    }
+
+    window.requestAnimationFrame(step);
+  }
+
+  if (counters.length) {
+    if (!canObserve) {
+      counters.forEach(runCounter);
+    } else {
+      var counterObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          runCounter(entry.target);
+          counterObserver.unobserve(entry.target);
+        });
+      }, { threshold: 0.6 });
+
+      counters.forEach(function (el) {
+        counterObserver.observe(el);
+      });
+    }
+  }
+
+  /* Portrait slideshow --------------------------------------------------- */
+
+  var slides = document.querySelectorAll('.portrait-stack img');
+  var dots = document.querySelectorAll('.portrait-dots i');
+  var frameLabel = document.querySelector('.frame-label');
+  var slideIndex = 0;
+
+  function showSlide(next) {
+    slides.forEach(function (img, i) {
+      img.classList.toggle('is-active', i === next);
+    });
+    dots.forEach(function (dot, i) {
+      dot.classList.toggle('is-active', i === next);
+    });
+    if (frameLabel) {
+      frameLabel.textContent = 'MD. SAKOWAT HOSEN / ' + (next < 9 ? '0' : '') + (next + 1);
+    }
+  }
+
+  if (slides.length > 1 && !reduceMotion) {
+    window.setInterval(function () {
+      if (document.hidden) return;
+      slideIndex = (slideIndex + 1) % slides.length;
+      showSlide(slideIndex);
+    }, 4500);
+  }
+
+  /* Cursor spotlight on cards -------------------------------------------- */
+
+  if (!reduceMotion && window.matchMedia('(hover: hover)').matches) {
+    document.querySelectorAll('.spotlight').forEach(function (card) {
+      card.addEventListener('pointermove', function (event) {
+        var rect = card.getBoundingClientRect();
+        card.style.setProperty('--mx', (event.clientX - rect.left) + 'px');
+        card.style.setProperty('--my', (event.clientY - rect.top) + 'px');
+      });
     });
   }
 
@@ -114,7 +226,7 @@
     .map(function (link) { return document.querySelector(link.getAttribute('href')); })
     .filter(Boolean);
 
-  if (sections.length && 'IntersectionObserver' in window) {
+  if (sections.length && canObserve) {
     var sectionObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (!entry.isIntersecting) return;
