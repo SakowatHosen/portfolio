@@ -384,26 +384,45 @@ h1 em, h2 em {
 
 .portrait-frame {
   position: relative;
-  width: min(380px, 74%);
-  aspect-ratio: 4 / 5;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  background: var(--surface);
-  transform: rotate(1.5deg);
-  box-shadow: 22px 26px 0 color-mix(in srgb, var(--accent) 12%, transparent);
+  width: min(350px, 72%);
+  aspect-ratio: 1;
+  border-radius: 50%;
 }
 
+/* Slowly orbiting dashed ring, echoing the topology behind it */
+.portrait-frame::before {
+  content: "";
+  position: absolute;
+  inset: -22px;
+  border-radius: 50%;
+  border: 1px dashed color-mix(in srgb, var(--accent) 42%, transparent);
+  animation: orbit-ring 38s linear infinite;
+}
+
+/* Darkens the lower edge so the caption and dots stay readable */
 .portrait-frame::after {
   content: "";
   position: absolute;
+  z-index: 1;
   inset: 0;
-  background: linear-gradient(180deg, transparent 48%, #050c09cc);
+  border-radius: 50%;
+  background: linear-gradient(180deg, transparent 52%, #050c09b8);
+  pointer-events: none;
+}
+
+@keyframes orbit-ring {
+  to { transform: rotate(360deg); }
 }
 
 /* Crossfading portrait stack */
 .portrait-stack {
   position: absolute;
   inset: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--accent) 32%, var(--line));
+  background: var(--surface);
+  box-shadow: 0 28px 60px -26px rgba(0, 0, 0, .7);
 }
 
 .portrait-stack img {
@@ -412,7 +431,7 @@ h1 em, h2 em {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 45% top;
+  object-position: 50% 18%;
   filter: saturate(.78) contrast(1.06);
   opacity: 0;
   transform: scale(1);
@@ -426,11 +445,12 @@ h1 em, h2 em {
 
 .portrait-dots {
   position: absolute;
-  z-index: 1;
-  right: 14px;
-  bottom: 17px;
+  z-index: 2;
+  left: 50%;
+  bottom: 26px;
+  transform: translateX(-50%);
   display: flex;
-  gap: 6px;
+  gap: 7px;
 }
 
 .portrait-dots i {
@@ -448,13 +468,15 @@ h1 em, h2 em {
 
 .frame-label {
   position: absolute;
-  z-index: 1;
-  left: 16px;
-  bottom: 14px;
+  z-index: 2;
+  left: 50%;
+  bottom: -38px;
+  transform: translateX(-50%);
+  white-space: nowrap;
   font-family: "DM Mono", ui-monospace, monospace;
   font-size: 9px;
   letter-spacing: .13em;
-  color: #e2f3ea;
+  color: var(--muted);
 }
 
 /* Ticker */
@@ -1587,13 +1609,16 @@ main,
 
 .portrait-frame {
   z-index: 1;
-  transition: transform .5s var(--ease), box-shadow .5s var(--ease);
+  transition: transform .5s var(--ease);
 }
 
-.hero-visual:hover .portrait-frame {
-  transform: rotate(0deg) translateY(-6px);
-  box-shadow: 26px 32px 0 color-mix(in srgb, var(--accent) 18%, transparent);
+.hero-visual:hover .portrait-frame { transform: translateY(-8px); }
+
+.hero-visual:hover .portrait-frame::before {
+  border-color: color-mix(in srgb, var(--accent) 70%, transparent);
 }
+
+.portrait-frame::before { transition: border-color .4s var(--ease); }
 
 /* Floating hero chips */
 .hero-chip {
@@ -1627,7 +1652,7 @@ main,
 }
 
 .chip-uptime { top: 9%; right: 2%; }
-.chip-stack { bottom: 11%; left: 0; animation-delay: -3.5s; }
+.chip-stack { bottom: 18%; left: -2%; animation-delay: -3.5s; }
 
 @keyframes float {
   50% { transform: translateY(-12px); }
