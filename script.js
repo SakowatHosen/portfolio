@@ -189,6 +189,8 @@
 
   function showSlide(next) {
     slides.forEach(function (img, i) {
+      // The outgoing slide keeps its exit animation until the next one lands.
+      img.classList.toggle('is-leaving', img.classList.contains('is-active') && i !== next);
       img.classList.toggle('is-active', i === next);
     });
     dots.forEach(function (dot, i) {
@@ -204,7 +206,7 @@
       if (document.hidden) return;
       slideIndex = (slideIndex + 1) % slides.length;
       showSlide(slideIndex);
-    }, 4500);
+    }, 10000);
   }
 
   /* Cursor spotlight on cards -------------------------------------------- */
