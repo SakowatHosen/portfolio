@@ -503,11 +503,18 @@ h1 em, h2 em {
 
 .ticker-track {
   display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+/* Each group repeats the same labels; the track scrolls by exactly one
+   group (1/8 of its width) so the loop restarts without a visible jump. */
+.ticker-group {
+  display: flex;
   align-items: center;
   gap: 30px;
-  width: max-content;
   padding-block: 16px;
-  animation: marquee 34s linear infinite;
+  padding-right: 30px;
 }
 
 .ticker i {
@@ -518,7 +525,7 @@ h1 em, h2 em {
   transform: rotate(45deg);
 }
 
-@keyframes marquee { to { transform: translateX(-50%); } }
+@keyframes marquee { to { transform: translateX(-12.5%); } }
 
 /* About */
 .about-grid {
