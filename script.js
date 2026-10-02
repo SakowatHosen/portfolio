@@ -241,7 +241,9 @@
 
   function startSlideshow() {
     window.clearInterval(slideTimer);
-    if (slides.length < 2 || reduceMotion) return;
+    // Reduced motion removes the sliding animation (handled in CSS), but the
+    // portraits still take their turn - otherwise the hero looks broken.
+    if (slides.length < 2) return;
     slideTimer = window.setInterval(function () {
       if (document.hidden) return;
       slideIndex = (slideIndex + 1) % slides.length;
