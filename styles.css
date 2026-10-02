@@ -485,17 +485,20 @@ h1 em, h2 em {
   gap: 7px;
 }
 
-.portrait-dots i {
-  width: 5px;
-  height: 5px;
+.portrait-dots button {
+  width: 7px;
+  height: 7px;
+  padding: 0;
   border-radius: 50%;
   background: #ffffff59;
   transition: background-color .4s, transform .4s var(--ease);
 }
 
-.portrait-dots i.is-active {
+.portrait-dots button:hover { background: #fff; transform: scale(1.3); }
+
+.portrait-dots button.is-active {
   background: var(--accent);
-  transform: scale(1.35);
+  transform: scale(1.5);
 }
 
 .frame-label {
@@ -1782,4 +1785,81 @@ main,
   }
 
   a { text-decoration: underline; }
+}
+
+
+/* Copy-to-clipboard beside the email address */
+.contact-email {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.copy-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  transition: color .25s, border-color .25s, background-color .25s;
+}
+
+.copy-button svg { width: 13px; height: 13px; }
+
+.copy-button:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.copy-button.is-copied {
+  color: var(--accent-ink);
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+/* Back to top */
+.to-top {
+  position: fixed;
+  right: 26px;
+  bottom: 26px;
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  backdrop-filter: blur(12px);
+  color: var(--text);
+  opacity: 0;
+  transform: translateY(14px);
+  pointer-events: none;
+  transition: opacity .35s var(--ease), transform .35s var(--ease), color .25s, border-color .25s;
+}
+
+.to-top.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.to-top:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.to-top svg { width: 18px; height: 18px; }
+
+@media (max-width: 680px) {
+  .to-top { right: 16px; bottom: 16px; }
+}
+
+@media print {
+  .to-top, .copy-button { display: none !important; }
 }

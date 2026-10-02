@@ -180,10 +180,46 @@
     }
   }
 
+  /* Experience figures --------------------------------------------------- */
+
+  // Every "x years" on the page is derived from these two dates, so the
+  // numbers stay right without anyone remembering to edit them.
+  var ROLES = [
+    { start: '2022-11-01', end: '2024-09-30' },
+    { start: '2024-12-01', end: null }
+  ];
+
+  function yearsBetween(from, to) {
+    return (to - from) / (365.25 * 24 * 60 * 60 * 1000);
+  }
+
+  var now = new Date();
+  var spans = ROLES.map(function (role) {
+    return yearsBetween(new Date(role.start), role.end ? new Date(role.end) : now);
+  });
+  var totalYears = spans.reduce(function (a, b) { return a + b; }, 0);
+
+  document.querySelectorAll('[data-exp]').forEach(function (el) {
+    var key = el.getAttribute('data-exp');
+    var value = key === 'total' ? totalYears : spans[+key];
+    if (value != null) el.textContent = value.toFixed(1);
+  });
+
+  var statWhole = document.querySelector('.stat .counter[data-pad="1"]');
+  var statDecimal = document.querySelector('[data-exp-decimal]');
+  if (statWhole && statDecimal) {
+    statWhole.setAttribute('data-count', String(Math.floor(totalYears)));
+    statDecimal.textContent = totalYears.toFixed(1).split('.')[1];
+  }
+
+  document.querySelectorAll('[data-year]').forEach(function (el) {
+    el.textContent = String(now.getFullYear());
+  });
+
   /* Portrait slideshow --------------------------------------------------- */
 
   var slides = document.querySelectorAll('.portrait-stack img');
-  var dots = document.querySelectorAll('.portrait-dots i');
+  var dots = document.querySelectorAll('.portrait-dots button');
   var frameLabel = document.querySelector('.frame-label');
   var slideIndex = 0;
 
@@ -201,13 +237,30 @@
     }
   }
 
-  if (slides.length > 1 && !reduceMotion) {
-    window.setInterval(function () {
+  var slideTimer;
+
+  function startSlideshow() {
+    window.clearInterval(slideTimer);
+    if (slides.length < 2 || reduceMotion) return;
+    slideTimer = window.setInterval(function () {
       if (document.hidden) return;
       slideIndex = (slideIndex + 1) % slides.length;
       showSlide(slideIndex);
     }, 10000);
   }
+
+  // Clicking a dot jumps straight to that portrait and restarts the clock,
+  // so the chosen one gets its full turn on screen.
+  dots.forEach(function (dot, i) {
+    dot.addEventListener('click', function () {
+      if (i === slideIndex) return;
+      slideIndex = i;
+      showSlide(slideIndex);
+      startSlideshow();
+    });
+  });
+
+  startSlideshow();
 
   /* Cursor spotlight on cards -------------------------------------------- */
 
@@ -280,6 +333,55 @@
 
       setNote('Opening your email app — thanks for reaching out.', 'ok');
       form.reset();
+    });
+  }
+
+  /* Copy email ----------------------------------------------------------- */
+
+  document.querySelectorAll('.copy-button').forEach(function (button) {
+    var label = button.querySelector('.copy-label');
+    var original = label ? label.textContent : '';
+    button.addEventListener('click', function () {
+      var text = button.getAttribute('data-copy');
+      var done = function () {
+        button.classList.add('is-copied');
+        if (label) label.textContent = 'Copied';
+        window.setTimeout(function () {
+          button.classList.remove('is-copied');
+          if (label) label.textContent = original;
+        }, 1800);
+      };
+      // Older browsers and insecure origins reject the clipboard API, so
+      // fall back to a hidden field and the legacy copy command.
+      var legacyCopy = function () {
+        var field = document.createElement('textarea');
+        field.value = text;
+        field.setAttribute('readonly', '');
+        field.style.position = 'fixed';
+        field.style.opacity = '0';
+        document.body.appendChild(field);
+        field.select();
+        try { document.execCommand('copy'); done(); } catch (e) {}
+        document.body.removeChild(field);
+      };
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, legacyCopy);
+      } else {
+        legacyCopy();
+      }
+    });
+  });
+
+  /* Back to top ---------------------------------------------------------- */
+
+  var toTop = document.querySelector('.to-top');
+  if (toTop) {
+    window.addEventListener('scroll', function () {
+      toTop.classList.toggle('is-visible', window.scrollY > window.innerHeight);
+    }, { passive: true });
+    toTop.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
     });
   }
 
