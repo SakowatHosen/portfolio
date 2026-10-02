@@ -1432,7 +1432,7 @@ h1 em, h2 em {
   .hero-visual::after { display: none; }
   .portrait-frame { width: 70%; }
   .hero-chip { display: none; }
-  .hero-net { opacity: .35; }
+  .hero-net { opacity: .5; }
   .glow { filter: blur(60px); opacity: .22; }
   .hero-meta { gap: 10px; display: grid; }
 
@@ -1600,7 +1600,7 @@ main,
   position: absolute;
   inset: -6% -8%;
   z-index: 0;
-  opacity: .55;
+  opacity: .72;
   pointer-events: none;
 }
 
@@ -1609,9 +1609,9 @@ main,
 .net-links path {
   stroke: var(--accent);
   stroke-width: 1;
-  opacity: .34;
+  opacity: .45;
   stroke-dasharray: 5 11;
-  animation: traffic 2.6s linear infinite;
+  animation: traffic 2s linear infinite;
 }
 
 .net-links path:nth-child(2n) { animation-duration: 3.4s; animation-direction: reverse; }
@@ -1621,6 +1621,24 @@ main,
 @keyframes traffic {
   to { stroke-dashoffset: -32; }
 }
+
+.net-packets circle {
+  fill: var(--accent);
+  filter: drop-shadow(0 0 6px color-mix(in srgb, var(--accent) 70%, transparent));
+  animation: packet linear infinite;
+}
+
+@keyframes packet {
+  from { offset-distance: 0%; opacity: 0; }
+  12%  { opacity: 1; }
+  88%  { opacity: 1; }
+  to   { offset-distance: 100%; opacity: 0; }
+}
+
+/* The light theme needs a touch more weight to read against white */
+[data-theme="light"] .hero-net { opacity: .95; }
+[data-theme="light"] .net-links path { opacity: .6; }
+[data-theme="light"] .net-packets circle { r: 3.4; }
 
 .net-nodes circle {
   fill: var(--accent);

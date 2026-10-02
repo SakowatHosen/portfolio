@@ -133,6 +133,14 @@
               <circle cx="230" cy="470" r="3.5" /><circle cx="400" cy="395" r="3.5" />
               <circle class="net-hub" cx="230" cy="265" r="5.5" />
             </g>
+            <!-- Packets ride the links so the topology reads as live traffic -->
+            <g class="net-packets">
+              <circle r="3" style="offset-path: path('M60 110 L215 55 L390 130'); animation-duration: 3.8s; animation-delay: 0s" />
+              <circle r="3" style="offset-path: path('M120 265 L230 265 L230 470'); animation-duration: 4.6s; animation-delay: -.6s" />
+              <circle r="3" style="offset-path: path('M390 130 L300 240 L400 395'); animation-duration: 4.2s; animation-delay: -1.2s" />
+              <circle r="3" style="offset-path: path('M55 415 L230 470 L400 395'); animation-duration: 5s; animation-delay: -1.8s" />
+              <circle r="3" style="offset-path: path('M215 55 L230 265 L120 265 L55 415'); animation-duration: 6s; animation-delay: -.4s" />
+            </g>
             <g class="net-pulses">
               <circle cx="215" cy="55" r="3.5" /><circle cx="230" cy="265" r="5.5" />
               <circle cx="400" cy="395" r="3.5" /><circle cx="55" cy="415" r="3.5" />
